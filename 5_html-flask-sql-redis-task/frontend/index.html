@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Docker sysytem</title>
+</head>
+<body>
+  <h1>Hello, user!</h1>
+  <p>It is <strong>FrontEnd</strong> container, where u can call <strong>BackEnd (Flask)</strong>:</p>
+  <button onclick="callBackend()">Call backend</button>
+  <div id="response"></div>
+  <script>
+    async function callBackend() {
+      try {
+        const res = await fetch("http://localhost:5000/");
+        const text = await res.text();
+        document.getElementById("response").innerText = text;
+      } catch (err) {
+        document.getElementById("response").innerText = "Error: " + err;
+      }
+    }
+  </script>
+</body>
+</html>
